@@ -2,10 +2,7 @@ package com.smartbit.test_smartbit
 
 import android.os.Bundle
 import android.view.View
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,9 +14,9 @@ import java.util.*
 import kotlin.concurrent.thread
 
 class SecondActivity : AppCompatActivity() {
-    val availableURL = "https://petstore.swagger.io/v2/pet/findByStatus?status=available"
-    val pendingURL = "https://petstore.swagger.io/v2/pet/findByStatus?status=pending"
-    val soldURL = "https://petstore.swagger.io/v2/pet/findByStatus?status=sold"
+    private val availableURL = "https://petstore.swagger.io/v2/pet/findByStatus?status=available"
+    private val pendingURL = "https://petstore.swagger.io/v2/pet/findByStatus?status=pending"
+    private val soldURL = "https://petstore.swagger.io/v2/pet/findByStatus?status=sold"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
@@ -74,6 +71,25 @@ class SecondActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                val text: EditText = findViewById(R.id.searchText)
+                if (text.text.toString().trim().isNotBlank()) {
+                    val petIterator = listPets.iterator()
+                    if (!petIterator.equals(null)) {
+                        while (petIterator.hasNext()) {
+                            val tmpPet = petIterator.next()
+                            if (tmpPet.name?.isNotEmpty() == true) {
+                                if (!(tmpPet.name!!.uppercase()
+                                        .contains(text.text.toString().uppercase()))) {
+                                    petIterator.remove()
+                                }
+                            }
+                            else {
+                                petIterator.remove()
+                            }
+                        }
+                    }
+                }
+
                 radioGroup.clearCheck()
                 recyclerViewCategories.layoutManager = LinearLayoutManager(this)
                 recyclerViewCategories.adapter = PetAdapter(listPets)
