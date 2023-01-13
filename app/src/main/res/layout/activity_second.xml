@@ -3,45 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#011C1A"
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
 
     <Button
-        android:id="@+id/button_pending"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="PENDING"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.548"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036" />
-
-    <Button
-        android:id="@+id/button_sold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="SOLD"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.839"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036" />
-
-    <Button
         android:id="@+id/button_available"
+        app:backgroundTint="#01605F"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="AVAILABLE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.036" />
+
+    <Button
+        android:id="@+id/button_sold"
+        app:backgroundTint="#01605F"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="SOLD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/button_pending"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.036" />
+
+    <Button
+        android:id="@+id/button_pending"
+        app:backgroundTint="#01605F"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="PENDING"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/button_available"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.036" />
 
@@ -57,6 +64,21 @@
         app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/pet_item" />
 
+    <EditText
+        android:id="@+id/searchText"
+        android:textColor="@color/white"
+        android:layout_width="250dp"
+        android:layout_height="51dp"
+        android:ems="10"
+        android:hint="Search by name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/pets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group"
+        app:layout_constraintVertical_bias="0.0" />
+
     <RadioGroup
         android:id="@+id/radio_group"
         android:layout_width="wrap_content"
@@ -64,35 +86,40 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/pets"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_pending"
-        app:layout_constraintVertical_bias="0.278">
+        app:layout_constraintVertical_bias="0.371">
 
         <RadioButton
             android:id="@+id/radioButton_id"
-            android:layout_width="128dp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="Id" />
 
         <RadioButton
             android:id="@+id/radioButton_name"
-            android:layout_width="128dp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="Name" />
     </RadioGroup>
 
-    <EditText
-        android:id="@+id/searchText"
-        android:layout_width="250dp"
-        android:layout_height="51dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/pets"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="108dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="4dp"
+        android:gravity="center"
+        android:text="Sort By"
+        android:textColor="@color/white"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintBottom_toTopOf="@+id/radio_group"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radio_group"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

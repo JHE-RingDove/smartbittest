@@ -8,6 +8,8 @@
 
     <Button
         android:id="@+id/button_first"
+        android:textColor="@color/white"
+        app:backgroundTint="#381D67"
         android:layout_width="241dp"
         android:layout_height="105dp"
         android:onClick="onClick"
@@ -20,6 +22,8 @@
 
     <Button
         android:id="@+id/button_second"
+        android:textColor="@color/white"
+        app:backgroundTint="#381D67"
         android:layout_width="241dp"
         android:layout_height="105dp"
         android:onClick="onClick"

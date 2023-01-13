@@ -3,72 +3,145 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/pet_item_layout"
-    android:background="@drawable/layout_background"
+    android:background="@drawable/layout_background_names"
     android:layout_marginVertical="2dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingTop="7dp"
+    android:paddingBottom="10dp">
 
     <TextView
         android:id="@+id/idPet"
-        android:layout_width="53dp"
-        android:layout_height="67dp"
+        android:layout_width="50dp"
+        android:layout_height="130dp"
+        android:background="@drawable/layout_background_text"
         android:text="0!"
         android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_id"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/namePet"
-        android:layout_width="97dp"
-        android:layout_height="32dp"
+        android:layout_width="98dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/layout_background_text"
         android:text="Name!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
+        app:layout_constraintHorizontal_bias="0.23"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045"
+        app:layout_constraintTop_toBottomOf="@+id/textViewname"
+        app:layout_constraintVertical_bias="0.0"
         app:textAllCaps="true" />
 
     <TextView
         android:id="@+id/categoryPet"
-        android:layout_width="106dp"
+        android:background="@drawable/layout_background_text"
+        android:layout_width="110dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="1dp"
         android:textSize="11sp"
-        android:layout_height="102dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintHorizontal_bias="0.598"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_category"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tagsPet"
+        android:background="@drawable/layout_background_text"
+        android:layout_width="110dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="8dp"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/tagsPet"
-        android:layout_width="107dp"
-        android:textSize="11sp"
-        android:layout_height="101dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/statusPet"
+        android:background="@drawable/layout_background_text"
+        android:layout_width="97dp"
+        android:layout_height="24dp"
+        android:text="status!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.229"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/namePet"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView_id"
+        android:layout_width="49dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/layout_background_names"
+        android:text="ID:"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.007" />
+
+    <TextView
+        android:id="@+id/textViewname"
+        android:layout_width="49dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="72dp"
+        android:background="@drawable/layout_background_names"
+        android:text="NAME:"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.006" />
+
+    <TextView
+        android:id="@+id/textView_category"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="180dp"
+        android:background="@drawable/layout_background_names"
+        android:text="CATEGORY:"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/statusPet"
-        android:layout_width="97dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="8dp"
-        android:text="status!"
+        android:id="@+id/textView_tags"
+        android:layout_width="49dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="292dp"
+        android:background="@drawable/layout_background_names"
+        android:text="TAGS:"
+        app:fontFamily="sans-serif-black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/namePet"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView_status"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="72dp"
+        android:background="@drawable/layout_background_names"
+        android:text="STATUS:"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.816" />
 </androidx.constraintlayout.widget.ConstraintLayout>
