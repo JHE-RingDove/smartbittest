@@ -1,13 +1,10 @@
 package com.smartbit.test_smartbit
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.TextureView
 import android.view.View
 import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 class CreateGoodsActivity : AppCompatActivity() {
     var name: String = ""
@@ -32,16 +29,18 @@ class CreateGoodsActivity : AppCompatActivity() {
         name = nameEditText.text.toString()
         amount = amountEditText.text.toString()
         description = descriptionEditText.text.toString()
-        Toast.makeText(
-            this,
-            "$oldName",
-            Toast.LENGTH_LONG
-        ).show()
+        MainActivity.GOODSLIST.add(GoodsItem(name, amount.toInt(),description))
+//        Toast.makeText(
+//            this,
+//            "$oldName",
+//            Toast.LENGTH_LONG
+//        ).show()
 
-        val dbHelper = DBHelper(this, null)
-        val db = dbHelper.writableDatabase
-
-        db.execSQL("insert into goods (name, amount, description) values\n" +
-                "(\"$name\", $amount, \"$description\");")
+//        val dbHelper = DBHelper(this, null)
+//        val db = dbHelper.writableDatabase
+//
+//        db.execSQL("insert into goods (name, amount, description) values\n" +
+//                "(\"$name\", $amount, \"$description\");")
     }
+
 }

@@ -17,10 +17,12 @@
             android:exported="false" />
         <activity
             android:name=".CreateGoodsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".FirstActivity"/>
         <activity
             android:name=".EditGoodsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".FirstActivity"/>
         <activity
             android:name=".FirstActivity"
             android:exported="false"
@@ -32,6 +34,7 @@
 
         <activity
             android:name=".MainActivity"
+            android:launchMode="singleTask"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

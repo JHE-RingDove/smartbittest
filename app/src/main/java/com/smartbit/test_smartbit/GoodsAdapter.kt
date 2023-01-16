@@ -15,6 +15,7 @@ class GoodsAdapter(private val names: MutableList<GoodsItem>) : RecyclerView
 .Adapter<GoodsAdapter.ViewHolder>() {
 
     companion object {
+        var ID: Int = 0
         var NAME: String = "NAME!"
         var AMOUNT: String = "AMOUNT!"
         var DESCRIPTION: String = "DESCRIPTION!"
@@ -48,6 +49,7 @@ class GoodsAdapter(private val names: MutableList<GoodsItem>) : RecyclerView
         viewHolder.buttonEdit.setOnClickListener{ view ->
             val intent = Intent(viewHolder.constraintLayout.context, EditGoodsActivity::class.java)
 
+            ID = position
             NAME = names[position].name
             AMOUNT = names[position].amount.toString()
             DESCRIPTION = names[position].description
@@ -68,9 +70,9 @@ class GoodsAdapter(private val names: MutableList<GoodsItem>) : RecyclerView
     private fun removeAt(name: TextView, position: Int) {
         names.removeAt(position)
         notifyDataSetChanged()
-        val dbHelper = DBHelper(name.context, null)
-        val db = dbHelper.writableDatabase
-        db.execSQL("delete from goods where name = " + "\"" + name.text + "\"")
+//        val dbHelper = DBHelper(name.context, null)
+//        val db = dbHelper.writableDatabase
+//        db.execSQL("delete from goods where name = " + "\"" + name.text + "\"")
 //        notifyItemChanged(position)
 //        notifyItemRemoved(position)
 //        notifyItemRangeRemoved(position, 1)

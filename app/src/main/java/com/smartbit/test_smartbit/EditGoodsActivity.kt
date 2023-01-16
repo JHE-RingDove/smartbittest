@@ -39,31 +39,37 @@ class EditGoodsActivity : AppCompatActivity() {
         name = nameEditText.text.toString()
         amount = amountEditText.text.toString()
         description = descriptionEditText.text.toString()
-        Toast.makeText(
-            this,
-            "$oldName",
-//            "update goods\n" +
-//                    "set name = \"$name\",\n" +
-//                    "\tamount = $amount,\n" +
-//                    "\tdescription = \"$description\"\n" +
-//                    "where name = \"$oldName\";",
-            Toast.LENGTH_LONG
-        ).show()
+        val listItem = MainActivity.GOODSLIST.get(GoodsAdapter.ID)
+        listItem.name = name
+        listItem.amount = amount.toInt()
+        listItem.description = description
+
+//        Toast.makeText(
+//            this,
+//            "$oldName",
+////            "update goods\n" +
+////                    "set name = \"$name\",\n" +
+////                    "\tamount = $amount,\n" +
+////                    "\tdescription = \"$description\"\n" +
+////                    "where name = \"$oldName\";",
+//            Toast.LENGTH_LONG
+//        ).show()
 //        val name = nameEditText.text
 //        val amount = amountEditText.text
 //        val description = descriptionEditText.text
-        val dbHelper = DBHelper(this, null)
-        val db = dbHelper.writableDatabase
+
+//        val dbHelper = DBHelper(this, null)
+//        val db = dbHelper.writableDatabase
 //        val textTest: TextView = findViewById(R.id.textViewTest)
 //        textTest.text = "update goods\n" +
 //                "set name = \"$name\",\n" +
 //                "\tamount = $amount,\n" +
 //                "\tdescription = \"$description\"\n" +
-                "where name = \"$oldName\";"
-        db.execSQL("update goods\n" +
-                "set name = \"$name\",\n" +
-                "\tamount = $amount,\n" +
-                "\tdescription = \"$description\"\n" +
-                "where name = \"$oldName\";")
+//                "where name = \"$oldName\";"
+//        db.execSQL("update goods\n" +
+//                "set name = \"$name\",\n" +
+//                "\tamount = $amount,\n" +
+//                "\tdescription = \"$description\"\n" +
+//                "where name = \"$oldName\";")
     }
 }

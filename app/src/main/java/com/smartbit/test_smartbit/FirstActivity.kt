@@ -12,36 +12,32 @@ import androidx.recyclerview.widget.RecyclerView
 
 class FirstActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
-        supportActionBar?.hide()
-        this.window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)
 
         val recyclerViewCategories: RecyclerView = findViewById(R.id.goods)
         recyclerViewCategories.layoutManager = LinearLayoutManager(this)
-        recyclerViewCategories.adapter = GoodsAdapter(getListGoods())
+        recyclerViewCategories.adapter = GoodsAdapter(MainActivity.GOODSLIST)
+//        recyclerViewCategories.adapter = GoodsAdapter(getListGoods())
     }
 
-    private fun getListGoods(): MutableList<GoodsItem> {
-
-        val names = mutableListOf<GoodsItem>()
-        val dbHelper = DBHelper(this, null)
-        val db = dbHelper.writableDatabase
-        val cursor: Cursor = db.rawQuery("Select * from goods;", null)
-        var name: String
-        var amount: Int
-        var description: String
-        cursor.moveToFirst()
-        while (!cursor.isAfterLast) {
-            name = cursor.getString(1)
-            amount = cursor.getInt(2)
-            description = cursor.getString(3)
-            names.add(GoodsItem (name, amount, description))
-            cursor.moveToNext()
-        }
+//    private fun getListGoods(): MutableList<GoodsItem> {
+//
+//        val names = mutableListOf<GoodsItem>()
+////        val dbHelper = DBHelper(this, null)
+////        val db = dbHelper.writableDatabase
+////        val cursor: Cursor = db.rawQuery("Select * from goods;", null)
+////        var name: String
+////        var amount: Int
+////        var description: String
+////        cursor.moveToFirst()
+////        while (!cursor.isAfterLast) {
+////            name = cursor.getString(1)
+////            amount = cursor.getInt(2)
+////            description = cursor.getString(3)
+////            names.add(GoodsItem (name, amount, description))
+////            cursor.moveToNext()
+////        }
 //        names.add(GoodsItem ("Molotok", 1, "desc"))
 //        names.add(GoodsItem ("Prikol", 1, "desc"))
 //        names.add(GoodsItem ("Tritiy", 1, "desc"))
@@ -53,12 +49,17 @@ class FirstActivity : AppCompatActivity() {
 //        names.add(GoodsItem ("Kek", 1, "desc"))
 //        names.add(GoodsItem ("Predposledniy", 1, "desc"))
 //        names.add(GoodsItem ("Zhelud'", 1, "desc"))
-//        names.removeAt(2)
-        return names
-    }
+////        names.removeAt(2)
+//        return names
+//    }
     fun onClick(v: View) {
         when (v.id) {
             R.id.button_create -> startActivity(Intent(this, CreateGoodsActivity::class.java))
         }
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 }
